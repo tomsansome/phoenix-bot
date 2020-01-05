@@ -1,8 +1,8 @@
 const fs = require('fs')
 const Koa = require('koa')
 const app = new Koa()
+const getFilmTimes = require('./src/getFilmTimes')
 const Cron = require('cron').CronJob
-const writeToDisc = require('./src/writeToDisc')
 const everySec = '10 * * * * *'
 const everyMin = '* * * * *'
 const everyDay = '0 0 * * *'
