@@ -16,7 +16,7 @@ new Cron(everyMin, async () => {
 
   // Write them all to disc
   try {
-    fs.writeFileSync('data.json', json, 'utf8', () => { })
+    fs.writeFileSync('./data.json', json, 'utf8', () => { })
   } catch (err) {
     console.error(err)
   }
@@ -25,7 +25,7 @@ new Cron(everyMin, async () => {
 app.use(async (ctx) => {
   // Read data file
   try {
-    fs.readFileSync('data.json', 'utf8')
+    fs.readFileSync('./data.json', 'utf8')
   } catch (err) {
     console.error(err)
   }
