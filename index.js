@@ -4,11 +4,10 @@ const Koa = require('koa')
 const app = new Koa()
 const Cron = require('cron').CronJob
 const getFilmTimes = require('./src/getFilmTimes')
-// const everySecs = '2 * * * * *'
-// const everyMin = '* * * * *'
+const everyMin = '* * * * *'
 const everyDay = '0 0 * * *'
 
-new Cron(everyDay, async () => {
+new Cron(everyMin, async () => {
   // Get films and times
   const result = await getFilmTimes()
 
