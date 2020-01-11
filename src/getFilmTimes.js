@@ -52,8 +52,9 @@ module.exports = async () => {
   for (const day of daysArray) {
     const date = day.textContent
     const dateFormatted = moment(date).format('DDMMYYYY')
+    const dateIso = moment(date).format()
     const films = getFilmsForDay(i)
-    result.push({ date, dateFormatted, films })
+    result.push({ date, dateFormatted, dateIso, films })
     i++
   }
 
