@@ -41,7 +41,7 @@ module.exports = async () => {
       }
 
       result.push({
-        film: cleanTitle,
+        title: cleanTitle,
         times: timesResult
       })
     }
