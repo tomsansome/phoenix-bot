@@ -30,20 +30,24 @@ module.exports = async () => {
     const films = sectionsArray[day].querySelectorAll('.listing__item')
 
     for (const film of films) {
-      const filmTitle = film.querySelector('.media__title a').textContent.trim()
-      const cleanTitle = filmTitle.split('/')[1].trim()
+      const filmTitle = film.querySelector('.media a').textContent.trim()
+      const cleanTitle = filmTitle.split('/')[1]
 
-      const times = film.querySelectorAll('.listing__showing')
+      console.log(typeof cleanTitle)
 
-      let timesResult = []
-      for (const time of times) {
-        timesResult.push(time.querySelector('.button').textContent.trim())
+      if (typeof cleanTitle === 'string') {
+        const times = film.querySelectorAll('.listing__showing')
+
+        let timesResult = []
+        for (const time of times) {
+          timesResult.push(time.querySelector('.button').textContent.trim())
+        }
+
+        result.push({
+          title: cleanTitle.trim(),
+          times: timesResult
+        })
       }
-
-      result.push({
-        title: cleanTitle,
-        times: timesResult
-      })
     }
 
     return result
